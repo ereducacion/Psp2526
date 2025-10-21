@@ -15,7 +15,7 @@ public class EjemploPB1 {
 		System.out.println("Variables de entorno:");
 		System.out.println(entorno);   
 
-		test = new ProcessBuilder("java", "SaludandoAAlguien", "\"Hola Mundo!!\"");
+		test = new ProcessBuilder("java", "UnSaludo", "\"Hola Mundo!!\"");
 
 		//devuelve el nombre del proceso y sus argumentos	
 		List l =test.command() ; 
@@ -25,7 +25,7 @@ public class EjemploPB1 {
 			System.out.println(iter.next());    
 
 		//ejecutamos el comando DIR
-		test = test.command("CMD","/C" ,"DIR");
+		test = test.command("java", "-jar", "saludoparametros.jar", "nuez", "manzana", "almendra", "jjjjj");
 		try {
 			Process p= test.start();
 			InputStream is = p.getInputStream();

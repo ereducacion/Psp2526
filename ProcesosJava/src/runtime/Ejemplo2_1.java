@@ -5,7 +5,7 @@ public class Ejemplo2_1 {
 
 	public static void main(String[] args)  {
 		Runtime r = Runtime.getRuntime();    
-		  String[] comando= {"CMD", "/C", "DIR"} ;
+		  String[] comando= {"CMD", "/C", "patata"} ;
 		Process p=null;
 		try {
 

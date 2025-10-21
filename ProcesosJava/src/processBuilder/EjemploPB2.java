@@ -6,7 +6,7 @@ import java.io.IOException;
 public class EjemploPB2 { 
   public static void main(String args[]) throws IOException {
     
-	  ProcessBuilder pb = new ProcessBuilder("CMD","/C" ,"DIR");
+	  ProcessBuilder pb = new ProcessBuilder("CMD","/C" ,"patata");
     
     File fOut = new File("salida.txt");
     File fErr = new File("error.txt");
