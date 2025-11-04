@@ -12,7 +12,7 @@ public class Ejemplo1_1 {
 	 Process p;
 	 try {
 		p = r.exec( comando );
-		//p.waitFor();
+		p.waitFor();
 		System.err.println("Terminé!!");
 	 } catch (Exception e) {	 
 	     System.out.println("Error en: "+comando );
