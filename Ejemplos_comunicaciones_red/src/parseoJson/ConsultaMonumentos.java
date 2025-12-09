@@ -6,8 +6,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-import utilidades.Utilidades;
-
 public class ConsultaMonumentos {
 
 
@@ -21,7 +19,7 @@ public class ConsultaMonumentos {
 
 	public static void main(String[] args) throws Exception {
 
-		int numFilas = Utilidades.preguntaPorEntero("¿Cuántos monumentos quieres consultar?");
+		int numFilas = 10;
 		URL url = new URL(_PROTOCOLO, _HOST, _PATH + "?" + _QUERY1 + numFilas + _QUERY2);
 
 		// vamos a establecer una conexión HTTP con un mínimo control de errores
