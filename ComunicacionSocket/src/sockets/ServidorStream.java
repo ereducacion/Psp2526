@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 
 
 public class ServidorStream {
@@ -18,7 +19,7 @@ public class ServidorStream {
 		try {
 			ServerSocket miServidor = new ServerSocket(puerto);
 			System.out.println("SERVIDOR: Escuchando por el puerto " + puerto);
-			miServidor.setSoTimeout(0);
+			miServidor.setSoTimeout(5000);
 			Socket cliente = miServidor.accept();
 			System.out.println("se ha conectado, esperando entrada Cliente");
 			
@@ -34,6 +35,8 @@ public class ServidorStream {
 			leeCliente.close();
 			miServidor.close();
 			
+		} catch (SocketTimeoutException e) {
+			System.err.println("Se ha cerrado la conexión por tiempo");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

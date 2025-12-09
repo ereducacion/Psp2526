@@ -7,7 +7,7 @@ public class TestInetAddress {
 		System.out.println("SALIDA PARA LOCALHOST: ");
 		try {
 			//LOCALHOST
-			dir = InetAddress.getByName("IORANA");
+			dir = InetAddress.getByName("A25-PR");
 			pruebaMetodos(dir);//
 			
 			//URL
@@ -17,7 +17,7 @@ public class TestInetAddress {
 			pruebaMetodos(dir);
 			
 			// Array de tipo InetAddress con todas las direcciones IP asignadas a google.es
-			System.out.println("\tDIRECCIONES IP PARA: " + dir.getHostName());
+			System.out.println("DIRECCIONES IP PARA: " + dir.getHostName());
 			InetAddress[] direcciones = InetAddress.getAllByName(dir.getHostName());
 			for (int i = 0; i < direcciones.length; i++)
 				System.out.println("\t\t"+direcciones[i].toString());

@@ -4,15 +4,15 @@ import java.net.*;
 public class Ejemplo2urlCon {
   public static void main(String[] args) {
    try { 
-    URL url = new URL("http://192.168.23.3/psp/vernombre.php");
+    URL url = new URL("http://192.168.56.101/vernombre.php");
     URLConnection conexion = url.openConnection();
     conexion.setDoOutput(true);           
         
+    // ENVIAR INFORMACIÓN POR POST
     String cadena ="nombre=Mariana&apellido=Ozores";
            
     //ESCRIBIR EN LA URL
-    PrintWriter output = new PrintWriter 
-                        (conexion.getOutputStream());
+    PrintWriter output = new PrintWriter(conexion.getOutputStream());
     output.write(cadena);
 	output.flush();	 
 	output.close();

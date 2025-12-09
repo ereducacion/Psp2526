@@ -7,7 +7,8 @@ public class Ejemplo3urlCon {
   public static void main(String[] args) throws Exception {
 	String cadena;
 
-	URL url = new URL("http://192.168.23.3/psp/vernombre.php?nombre=Mariana&apellido=Ozores");
+	// ENVIAR INFORMACIÓN POR GET (todo en la URL)
+	URL url = new URL("http://192.168.56.101/vernombre.php?nombre=Mariana&apellido=Ozores");
 	URLConnection conexion = url.openConnection();
 
 	System.out.println("Direccion [getURL()]:" + conexion.getURL());

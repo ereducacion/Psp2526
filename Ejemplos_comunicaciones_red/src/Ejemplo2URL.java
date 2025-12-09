@@ -5,7 +5,7 @@ public class Ejemplo2URL {
 	public static void main(String[] args) {
 		URL url = null;
 		try {
-			url = new URL("http://www.elaltozano.es");
+			url = new URL("http://192.168.56.101");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

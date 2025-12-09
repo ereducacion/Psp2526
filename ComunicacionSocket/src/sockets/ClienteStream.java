@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -20,12 +21,12 @@ public class ClienteStream {
 		try {
 			Socket misocket = new Socket(host, puerto);
 		
-		// preparo el sitio donde escribiré en el socket
+		// preparo el sitio donde escribirï¿½ en el socket
 			OutputStream escrituraSocket = misocket.getOutputStream();
 			OutputStreamWriter escritor = new OutputStreamWriter(escrituraSocket);
 			BufferedWriter escribirAlServidor = new BufferedWriter(escritor);
 		
-		// envío algo al servidor
+		// envï¿½o algo al servidor
 			escribirAlServidor.write("Hola Servidor!!");
 			escribirAlServidor.newLine();
 			escribirAlServidor.flush();
@@ -34,9 +35,12 @@ public class ClienteStream {
 			escribirAlServidor.close();
 			misocket.close();
 			
+			System.out.println("He terminado y soy el cliente");
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ConnectException e) {
+			System.err.println("El servidor no estÃ¡ activo en el puerto " + puerto);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
