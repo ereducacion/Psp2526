@@ -1,4 +1,4 @@
-package socketsSeguros;
+package socketsSSL;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,22 +11,25 @@ import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
 
 
-public class ServidorStreamSSL {
+public class ServidorStream {
 
 	public static void main(String[] args) {
 		int puerto = 6000;
 		
 		try {
-			System.setProperty("javax.net.ssl.keyStore", "AlmacenSSL2");
+			System.setProperty("javax.net.ssl.keyStore", "src\\socketsSSL\\AlmacenSSLEva");
 			System.setProperty("javax.net.ssl.keyStorePassword", "1234567");
-		
-			SSLServerSocketFactory fabricaSegura = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
-			SSLServerSocket miServidorSeguro = (SSLServerSocket) fabricaSegura.createServerSocket(puerto);
 			
-						
+			SSLServerSocketFactory miFabricaSegura = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
+			SSLServerSocket miServidorSSL = (SSLServerSocket) miFabricaSegura.createServerSocket(puerto);
+			
+			System.out.println("Dirección desde la que se conecta el servidor:"
+			+ miServidorSSL.getInetAddress().getHostAddress());
+			
+			//ServerSocket miServidor = new ServerSocket(puerto);
 			System.out.println("SERVIDOR: Escuchando por el puerto " + puerto);
-			miServidorSeguro.setSoTimeout(0);
-			SSLSocket cliente = (SSLSocket) miServidorSeguro.accept();
+			miServidorSSL.setSoTimeout(0);
+			SSLSocket cliente = (SSLSocket) miServidorSSL.accept(); // BLOQUEA EL CÓDIGO
 			System.out.println("se ha conectado, esperando entrada Cliente");
 			
 			// Para leer lo que llegue por el nuevo socket
@@ -39,7 +42,7 @@ public class ServidorStreamSSL {
 			 
 			// cierro todos los recursos
 			leeCliente.close();
-			miServidorSeguro.close();
+			miServidorSSL.close();
 			
 		} catch (SocketTimeoutException e) {
 			System.err.println("Se ha cerrado la conexión por tiempo");

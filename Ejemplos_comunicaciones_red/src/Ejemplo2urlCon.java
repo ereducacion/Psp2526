@@ -4,9 +4,10 @@ import java.net.*;
 public class Ejemplo2urlCon {
   public static void main(String[] args) {
    try { 
-    URL url = new URL("http://192.168.56.101/vernombre.php");
-    URLConnection conexion = url.openConnection();
-    conexion.setDoOutput(true);           
+    URL url = new URL("http://192.168.56.101/verPost.php");
+    HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
+    conexion.setDoOutput(true);
+    conexion.setRequestMethod("POST");
         
     // ENVIAR INFORMACIÓN POR POST
     String cadena ="nombre=Mariana&apellido=Ozores";
